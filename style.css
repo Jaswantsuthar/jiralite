@@ -1,8 +1,10 @@
 * {
-     margin: 0px;
+   
+    margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
 #board{
     display: flex;
@@ -14,7 +16,7 @@
     text-align: center;
     width: 33.33%;
     min-height: 400px;
-    border: black 2px solid;
+    border: #ccc 2px solid;
     padding: 10px;
     margin: 0px;
     border-radius:2px;
@@ -52,6 +54,7 @@
 }
 #toDo{
     background-color: rgb(227, 120, 120);
+    
 }
 #inProgress{
     background-color: rgb(230, 230, 142);
@@ -74,7 +77,9 @@ h2{
     margin:30px 20px 0px 20px;
     font-family:'Courier New', Courier, monospace;
     font-size: 90px;
-    background-color: aqua;
+    background-color:rgb(212, 20, 52);
+    color: rgb(255, 255, 255);
     padding: 10px;
+    align-items: center;
 }
 
