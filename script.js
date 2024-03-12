@@ -7,13 +7,13 @@ function crateCard() {
 
   let card = document.createElement("div");
   card.className = "card";
-  card.id="card-"+Date.now()
+  card.id = "card-" + Date.now()
   todoContainer.append(card);
-  
-  card.setAttribute("contenteditable", "true");
-  card.setAttribute("data-text","Enter your Task")
 
-  card.setAttribute("Draggable","true")
+  card.setAttribute("contenteditable", "true");
+  card.setAttribute("data-text", "Enter your Task")
+
+  card.setAttribute("Draggable", "true")
   card.focus();
 
   card.addEventListener("blur", (eventdetails) => {
@@ -22,28 +22,28 @@ function crateCard() {
       targetCard.remove();
     }
   })
-  card.addEventListener("dragstart",(eventdetails)=> {
-    let cardDragged=eventdetails.target
+  card.addEventListener("dragstart", (eventdetails) => {
+    let cardDragged = eventdetails.target
     eventdetails.dataTransfer.setData("text/plain", cardDragged.id)
-    cardDragged.style.opacity="0.5"
+    cardDragged.style.opacity = "0.5"
   })
-  card.addEventListener("dragend",(eventdetails)=> {
-    let cardDragged=eventdetails.target
-    cardDragged.style.opacity=""
+  card.addEventListener("dragend", (eventdetails) => {
+    let cardDragged = eventdetails.target
+    cardDragged.style.opacity = ""
   })
 
-  let dropEvent=["dragover","dragenter","drop"]
-  dropEvent.forEach(dropping =>{
-    document.querySelectorAll(".column").forEach(column =>{
-        column.addEventListener(dropping,(eventDetails)=>{
-            eventDetails.preventDefault()
+  let dropEvent = ["dragover", "dragenter", "drop"]
+  dropEvent.forEach(dropping => {
+    document.querySelectorAll(".column").forEach(column => {
+      column.addEventListener(dropping, (eventDetails) => {
+        eventDetails.preventDefault()
 
-            if(dropping == "drop"){
-                const cardId = eventDetails.dataTransfer.getData("text/plain")
-                const card=document.getElementById(cardId)
-                column.append(card)
-            }
-        })
+        if (dropping == "drop") {
+          const cardId = eventDetails.dataTransfer.getData("text/plain")
+          const card = document.getElementById(cardId)
+          column.append(card)
+        }
+      })
     })
   })
 
